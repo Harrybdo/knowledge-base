@@ -12,7 +12,10 @@
     "watch": "NODE_OPTIONS=--openssl-legacy-provider webpack --config dev/webpack/webpack.dev.js",
     "test": "eslint --format codeframe --ext .js,.vue . && pug-lint server/views && jest",
     "cypress:open": "cypress open",
-    "postinstall": "patch-package"
+    "postinstall": "patch-package",
+    "ecr:authenticate": "echo 'Enter AWS Profile' && read profile && export AWS_PROFILE=$profile && aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 850417417408.dkr.ecr.us-east-1.amazonaws.com",
+    "docker:build": "docker build -t knowledge-base -f dev/build/Dockerfile . && docker tag knowledge-base:latest 850417417408.dkr.ecr.us-east-1.amazonaws.com/knowledge-base:latest",
+    "docker:push": "docker push 850417417408.dkr.ecr.us-east-1.amazonaws.com/knowledge-base:latest"
   },
   "repository": {
     "type": "git",

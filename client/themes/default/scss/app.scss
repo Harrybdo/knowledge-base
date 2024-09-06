@@ -85,7 +85,7 @@
 
   h1 {
     padding: 0;
-    color: mc('blue', '800');
+    color: orange;
     margin-top: 2rem;
     position: relative;
 
@@ -685,7 +685,7 @@
         display:inline-block;
         vertical-align:top;
         padding-top:0;
-        
+
         &:first-child {
           width: 100%;
         }
