@@ -25,7 +25,7 @@ RUN yarn patch-package
 # ===============
 # --- Release ---
 # ===============
-FROM public.ecr.aws/lts/node:18-alpine
+FROM public.ecr.aws/docker/library/node:18-alpine
 LABEL maintainer="requarks.io"
 
 RUN apk add bash curl git openssh gnupg sqlite --no-cache && \
