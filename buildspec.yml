@@ -11,8 +11,7 @@ phases:
       - echo Building the Docker image...
       - docker build -t $IMAGE_REPO_NAME:$IMAGE_TAG -f dev/build/Dockerfile .
       - docker tag $IMAGE_REPO_NAME:$IMAGE_TAG $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:$IMAGE_TAG
-      - printf '[{"name":"CONTAINER_NAME","imageUri":"IMAGE_URI"}]' > imagedefinitions.json
-      - sed -i -e "s|CONTAINER_NAME|$IMAGE_REPO_NAME|g" imagedefinitions.json
+      - printf '[{"name":"knowledge-base-2","imageUri":"IMAGE_URI"}]' > imagedefinitions.json
       - sed -i -e "s|IMAGE_URI|$AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:$IMAGE_TAG|g" imagedefinitions.json
       - cat imagedefinitions.json
   post_build:
