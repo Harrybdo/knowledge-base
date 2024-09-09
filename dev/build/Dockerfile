@@ -1,7 +1,7 @@
 # ====================
 # --- Build Assets ---
 # ====================
-FROM public.ecr.aws/docker/library/node:18-alpine AS assets
+FROM --platform=linux/amd64 public.ecr.aws/docker/library/node:18-alpine AS assets
 
 RUN apk add yarn g++ make cmake python3 --no-cache
 
@@ -25,7 +25,7 @@ RUN yarn patch-package
 # ===============
 # --- Release ---
 # ===============
-FROM public.ecr.aws/docker/library/node:18-alpine
+FROM --platform=linux/amd64 public.ecr.aws/docker/library/node:18-alpine
 LABEL maintainer="requarks.io"
 
 RUN apk add bash curl git openssh gnupg sqlite --no-cache && \
